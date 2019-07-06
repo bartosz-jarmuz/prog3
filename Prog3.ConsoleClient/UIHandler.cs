@@ -147,7 +147,7 @@ namespace Prog3.ConsoleClient
                 }
                 else if (possibleAnswers is string)
                 {
-                    answerOk = NumeralsConverter.IsNumber(input);
+                    answerOk = NumeralsConverter.IsValidNumber(input);
                 }
 
                 if (input == "c")

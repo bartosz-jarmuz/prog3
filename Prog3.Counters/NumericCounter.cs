@@ -39,12 +39,16 @@ namespace Prog3.Counters
 
         protected void DoWork(int iterations, int delay)
         {
+            if (iterations < 1)
+            {
+                return;
+            }
             this.Iteration = 1;
             bool end = false;
             while (!end)
             {
-                OnTick(this);
                 Thread.Sleep(delay);
+                OnTick(this);
                 if (this.Iteration < iterations)
                 {
                     this.Iteration++;
