@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prog3.WinForms", "Prog3.Win
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prog3.Counters", "Prog3.Counters\Prog3.Counters.csproj", "{5F1A0D54-C518-49E2-9671-426EB9D72879}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prog3.Contracts", "Prog3.Contracts\Prog3.Contracts.csproj", "{AE086578-D904-4C1F-9329-73490FA39DAC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5F1A0D54-C518-49E2-9671-426EB9D72879}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F1A0D54-C518-49E2-9671-426EB9D72879}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F1A0D54-C518-49E2-9671-426EB9D72879}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE086578-D904-4C1F-9329-73490FA39DAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE086578-D904-4C1F-9329-73490FA39DAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE086578-D904-4C1F-9329-73490FA39DAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE086578-D904-4C1F-9329-73490FA39DAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -42,8 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NumericCounter.cs" />
-    <Compile Include="ICounter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Prog3.Contracts\Prog3.Contracts.csproj">
+      <Project>{ae086578-d904-4c1f-9329-73490fa39dac}</Project>
+      <Name>Prog3.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

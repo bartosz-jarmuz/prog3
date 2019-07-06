@@ -45,11 +45,16 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UIHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Prog3.Contracts\Prog3.Contracts.csproj">
+      <Project>{ae086578-d904-4c1f-9329-73490fa39dac}</Project>
+      <Name>Prog3.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Prog3.Counters\Prog3.Counters.csproj">
       <Project>{5f1a0d54-c518-49e2-9671-426eb9d72879}</Project>
       <Name>Prog3.Counters</Name>
