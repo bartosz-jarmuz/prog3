@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Prog3.Contracts;
@@ -31,7 +28,7 @@ namespace Prog3.Counters
 
         public void StartCounter()
         {
-            Task task = Task.Factory.StartNew(() => DoWork(this.Name, this.Iterations, this.Delay));
+            Task task = Task.Factory.StartNew(() => DoWork(this.Iterations, this.Delay));
             task.ContinueWith(t => FlagCompleted());
         }
 
@@ -40,7 +37,7 @@ namespace Prog3.Counters
             OnComplete(this);
         }
 
-        protected void DoWork(string name, int iterations, int delay)
+        protected void DoWork(int iterations, int delay)
         {
             this.Iteration = 1;
             bool end = false;
@@ -57,6 +54,11 @@ namespace Prog3.Counters
                     end = true;
                 }
             }
+        }
+
+        public override string ToString()
+        {
+            return $"{Name} [n = {Iterations}, t = {Delay}]";
         }
     }
 }

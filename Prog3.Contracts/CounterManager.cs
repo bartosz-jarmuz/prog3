@@ -28,7 +28,7 @@ namespace Prog3.Contracts
             return counter;
         }
 
-        public void StartAllTasks()
+        public void StartAllCounters()
         {
             foreach (ICounter counter in this.ActiveCounters)
             {

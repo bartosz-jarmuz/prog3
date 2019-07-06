@@ -13,5 +13,11 @@ namespace Prog3.Counters
             //todo: make it accept numerals instead of numeric litrals
             return int.Parse(numeral);
         }
+
+        public static bool IsNumber(string numeral)
+        {
+            //todo: ...
+            return true;
+        }
     }
 }

@@ -11,6 +11,34 @@ namespace Prog3.Counters
     {
         private bool areParametersConvrted = false;
 
+        private int iterationsValue;
+        public new int Iterations
+        {
+            get {
+                ConvertParams();
+                return iterationsValue;
+            }
+            protected set {
+                iterationsValue = value;
+                base.Iterations = value;
+            }
+        }
+
+        private int delayValue;
+        public new int Delay
+        {
+            get
+            {
+                ConvertParams();
+                return delayValue;
+            }
+            protected set
+            {
+                delayValue = value;
+                base.Delay = value;
+            }
+        }
+
         private readonly string stringIterations;
         private readonly string stringDelay;
 
@@ -23,18 +51,22 @@ namespace Prog3.Counters
 
         public new void StartCounter()
         {
-            if (!areParametersConvrted)
-            {
-                ConvertParams();
-                areParametersConvrted = true;
-            }
             base.StartCounter();
         }
 
         private void ConvertParams()
         {
-            this.Iterations = NumeralsConverter.NumeralToNumber(this.stringIterations);
-            this.Delay = NumeralsConverter.NumeralToNumber(this.stringDelay);
+            if (!areParametersConvrted)
+            {
+                this.Iterations = NumeralsConverter.NumeralToNumber(this.stringIterations);
+                this.Delay = NumeralsConverter.NumeralToNumber(this.stringDelay) * 1000;
+                areParametersConvrted = true;
+            }
+        }
+
+        public override string ToString()
+        {
+            return $"{Name} [n = {Iterations}, t = {Delay}]";
         }
     }
 }
