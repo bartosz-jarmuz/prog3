@@ -52,22 +52,25 @@ namespace Prog3.ConsoleClient
         {
             do
             {
-                ICounter newCounter = CreateCounter();
-                if (newCounter == null)
+                ICounter newCounter = null;
+                try
                 {
-                    break;
+                    newCounter = CreateCounter();
                 }
-                else
+                catch
+                {
+                }
+
+                Console.Clear();
+                if (newCounter != null)
                 {
                     yield return newCounter;
-
-                    Console.Clear();
                     Console.WriteLine($"Created new counter: {newCounter}");
+                }
 
-                    if (OfferAnotherCounter() == "n")
-                    {
-                        break;
-                    }
+                if (OfferAnotherCounter() == "n")
+                {
+                    break;
                 }
 
             } while (true);
@@ -90,16 +93,7 @@ namespace Prog3.ConsoleClient
         private ICounter CreateNumericCounter()
         {
             string iterations = AskIterationsInt();
-            if (iterations == "c")
-            {
-                return null;
-            }
-
             string delay = AskDelayInt();
-            if (delay== "c")
-            {
-                return null;
-            }
 
             return new NumericCounter(int.Parse(iterations), int.Parse(delay), $"Counter #{++countersCreated} (numeric)");
         }
@@ -107,16 +101,7 @@ namespace Prog3.ConsoleClient
         private ICounter CreateTextCounter()
         {
             string iterations = AskIterationsText();
-            if (iterations == "c")
-            {
-                return null;
-            }
-
             string delay = AskDelayTetx();
-            if (delay == "c")
-            {
-                return null;
-            }
 
             return new TextCounter(iterations, delay, $"Counter #{++countersCreated} (text)");
         }
@@ -143,16 +128,16 @@ namespace Prog3.ConsoleClient
                 }
                 else if (possibleAnswers is int)
                 {
-                    answerOk = int.TryParse(input, out int t);
+                    answerOk = int.TryParse(input, out int t) && (t >= (int)possibleAnswers);
                 }
                 else if (possibleAnswers is string)
                 {
-                    answerOk = NumeralsConverter.IsValidNumber(input);
+                    answerOk = NumeralsConverter.IsValidNumber(input, int.Parse((string)possibleAnswers));
                 }
 
                 if (input == "c")
                 {
-                    answerOk = true;
+                    throw new Exception("Canceled");
                 }
 
                 if (!answerOk)
@@ -168,13 +153,13 @@ namespace Prog3.ConsoleClient
         private string AskIterationsInt()
         {
             Console.WriteLine();
-            return GetUserInput(msgIterations, 0);
+            return GetUserInput(msgIterations, 1);
         }
 
         private string AskIterationsText()
         {
             Console.WriteLine();
-            return GetUserInput(msgIterations, "");
+            return GetUserInput(msgIterations, "1");
         }
 
         private string AskDelayInt()
@@ -186,7 +171,7 @@ namespace Prog3.ConsoleClient
         private string AskDelayTetx()
         {
             Console.WriteLine();
-            return GetUserInput(msgDelayS, "");
+            return GetUserInput(msgDelayS, "0");
         }
 
         private string OfferAnotherCounter()

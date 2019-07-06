@@ -37,11 +37,11 @@ namespace Prog3.Counters
             throw new Exception("Invalid number");
         }
 
-        public static bool IsValidNumber(string numeral)
+        public static bool IsValidNumber(string numeral, int minimum)
         {
             try
             {
-                return NumeralToNumber(numeral) >= 0;
+                return NumeralToNumber(numeral) >= minimum;
             } 
             catch
             {

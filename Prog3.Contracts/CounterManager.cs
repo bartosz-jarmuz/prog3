@@ -30,9 +30,12 @@ namespace Prog3.Contracts
 
         public void StartAllCounters()
         {
-            foreach (ICounter counter in this.ActiveCounters)
+            lock (this)
             {
-                counter.StartCounter();
+                foreach (ICounter counter in this.ActiveCounters)
+                {
+                    counter.StartCounter();
+                }
             }
         }
 

@@ -23,11 +23,14 @@ namespace Prog3.Counters
             this.Iterations = iterations;
             this.Delay = delay;
             this.Name = name;
-            this.Working = true;
         }
 
         public void StartCounter()
         {
+            if (this.Iterations < 1)
+            {
+                return;
+            }
             Task task = Task.Factory.StartNew(() => DoWork(this.Iterations, this.Delay));
             task.ContinueWith(t => FlagCompleted());
         }
@@ -39,10 +42,7 @@ namespace Prog3.Counters
 
         protected void DoWork(int iterations, int delay)
         {
-            if (iterations < 1)
-            {
-                return;
-            }
+            this.Working = true;
             this.Iteration = 1;
             bool end = false;
             while (!end)

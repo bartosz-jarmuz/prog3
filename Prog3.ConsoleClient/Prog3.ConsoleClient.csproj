@@ -7,7 +7,7 @@
     <ProjectGuid>{53A3B181-21CF-4E38-9A17-59395E2DD450}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Prog3.ConsoleClient</RootNamespace>
-    <AssemblyName>Prog3.Console</AssemblyName>
+    <AssemblyName>Prog3.ConsoleClient</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
