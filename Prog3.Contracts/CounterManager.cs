@@ -38,10 +38,13 @@ namespace Prog3.Contracts
 
         private void FinalizeTask(ICounter counter)
         {
-            counter.Working = false;
-            if (!this.ActiveCounters.Any(c => c.Working))
+            lock (this)
             {
-                onCompleted(this);
+                counter.Working = false;
+                if (!this.ActiveCounters.Any(c => c.Working))
+                {
+                    onCompleted(this);
+                }
             }
         }
 

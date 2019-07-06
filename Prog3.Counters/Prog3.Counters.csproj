@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NumeralsConverter.cs" />
     <Compile Include="NumericCounter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextCounter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Prog3.Contracts\Prog3.Contracts.csproj">

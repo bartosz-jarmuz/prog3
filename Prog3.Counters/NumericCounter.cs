@@ -16,9 +16,9 @@ namespace Prog3.Counters
         public event Action<ICounter> OnTick;
         public event Action<ICounter> OnComplete;
 
-        public int Iterations { get; private set; }
-        public int Iteration { get; private set; }
-        public int Delay { get; private set; }
+        public int Iterations { get; protected set; }
+        public int Iteration { get; protected set; }
+        public int Delay { get; protected set; }
 
 
         public NumericCounter(int iterations, int delay, string name)
