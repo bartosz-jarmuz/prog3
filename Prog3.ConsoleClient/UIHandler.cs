@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Prog3.Common.Contracts;
+using Prog3.Common.Counters;
+using Prog3.Common.Helpers;
+using Prog3.Common.Utils;
+using System;
 using System.Collections.Generic;
-using Prog3.Contracts;
-using Prog3.Counters;
 
 namespace Prog3.ConsoleClient
 {

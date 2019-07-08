@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Prog3.Counters
+namespace Prog3.Common.Utils
 {
     public class NumeralsConverter
     {

@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Prog3.Common.Contracts;
+using Prog3.Common.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Prog3.Counters;
-using Prog3.Contracts;
 
 namespace Prog3.ConsoleClient
 {

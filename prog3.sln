@@ -5,11 +5,9 @@ VisualStudioVersion = 15.0.28307.539
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prog3.ConsoleClient", "Prog3.ConsoleClient\Prog3.ConsoleClient.csproj", "{53A3B181-21CF-4E38-9A17-59395E2DD450}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prog3.WinForms", "Prog3.WinForms\Prog3.WinForms.csproj", "{24C322BE-5F8B-4AE9-BB64-9E699C82C25C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prog3.WinFormsClient", "Prog3.WinFormsClient\Prog3.WinFormsClient.csproj", "{24C322BE-5F8B-4AE9-BB64-9E699C82C25C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prog3.Counters", "Prog3.Counters\Prog3.Counters.csproj", "{5F1A0D54-C518-49E2-9671-426EB9D72879}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prog3.Contracts", "Prog3.Contracts\Prog3.Contracts.csproj", "{AE086578-D904-4C1F-9329-73490FA39DAC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prog3.Common", "Prog3.Common\Prog3.Common.csproj", "{AE086578-D904-4C1F-9329-73490FA39DAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		{24C322BE-5F8B-4AE9-BB64-9E699C82C25C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24C322BE-5F8B-4AE9-BB64-9E699C82C25C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24C322BE-5F8B-4AE9-BB64-9E699C82C25C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5F1A0D54-C518-49E2-9671-426EB9D72879}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5F1A0D54-C518-49E2-9671-426EB9D72879}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5F1A0D54-C518-49E2-9671-426EB9D72879}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5F1A0D54-C518-49E2-9671-426EB9D72879}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AE086578-D904-4C1F-9329-73490FA39DAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AE086578-D904-4C1F-9329-73490FA39DAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE086578-D904-4C1F-9329-73490FA39DAC}.Release|Any CPU.ActiveCfg = Release|Any CPU

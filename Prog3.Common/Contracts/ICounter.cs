@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Prog3.Contracts
+namespace Prog3.Common.Contracts
 {
     public interface ICounter
     {

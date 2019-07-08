@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{53A3B181-21CF-4E38-9A17-59395E2DD450}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Prog3.ConsoleClient</RootNamespace>
-    <AssemblyName>Prog3.ConsoleClient</AssemblyName>
+    <ProjectGuid>{AE086578-D904-4C1F-9329-73490FA39DAC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Prog3.Common</RootNamespace>
+    <AssemblyName>Prog3.Common</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,18 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Helpers\CounterManager.cs" />
+    <Compile Include="Counters\CounterType.cs" />
+    <Compile Include="Counters\CounterTypeExtention.cs" />
+    <Compile Include="Counters\NumericCounter.cs" />
+    <Compile Include="Counters\TextCounter.cs" />
+    <Compile Include="Contracts\ICounter.cs" />
+    <Compile Include="Contracts\IUIHandler.cs" />
+    <Compile Include="Utils\NumeralsConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UIHandler.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Prog3.Common\Prog3.Common.csproj">
-      <Project>{ae086578-d904-4c1f-9329-73490fa39dac}</Project>
-      <Name>Prog3.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
