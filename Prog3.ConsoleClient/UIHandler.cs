@@ -28,24 +28,24 @@ namespace Prog3.ConsoleClient
         int countersCreated = 0;
 
 
-        public void NotifyCompleted(CounterManager taskManager)
+        public void NotifyCompleted(CounterManager counterManager)
         {
             Console.WriteLine();
             Console.WriteLine("All tasks completed");
         }
 
-        public void UpdateStatus(CounterManager taskManager)
+        public void UpdateStatus(CounterManager counterManager)
         {
             Console.Clear();
-            foreach (ICounter task in taskManager.ActiveCounters)
+            foreach (ICounter counter in counterManager.ActiveCounters)
             {
                 string prefix = " ";
-                if (task == taskManager.LastActiveCounter)
+                if (counter == counterManager.LastActiveCounter)
                 {
                     prefix = ">";
                 }
 
-                Console.WriteLine($"{prefix}{task.Name}:\titeration #{task.Iteration}");
+                Console.WriteLine($"{prefix}{counter.ToString()}");
             }
         }
 
@@ -61,6 +61,7 @@ namespace Prog3.ConsoleClient
                 }
                 catch
                 {
+                    //swallow Cancel exception
                 }
 
                 Console.Clear();
@@ -70,12 +71,7 @@ namespace Prog3.ConsoleClient
                     Console.WriteLine($"Created new counter: {newCounter}");
                 }
 
-                if (OfferAnotherCounter() == "n")
-                {
-                    break;
-                }
-
-            } while (true);
+            } while (OfferAnotherCounter() != "n");
 
             Console.Clear();
         }
