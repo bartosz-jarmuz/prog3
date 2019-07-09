@@ -9,20 +9,21 @@ namespace Prog3.WinFormsClient
 {
     class CounterViewItem
     {
-        public string Text { get; private set; }
-        public bool Marked { get; private set; }
-        public bool Active { get; private set; }
+        public string Text { get => counter.ToString(); }
+        public CounterStatus Status { get => counter.Status; }
+        public bool Marked { get; }
 
-        public CounterViewItem(ICounter counter, bool marked, bool active, bool showSettings = false)
+        private readonly ICounter counter;
+
+        public CounterViewItem(ICounter counter, bool marked)
         {
-            this.Text = showSettings ? counter.ToString() : $"{counter.ToString()}: iteration #{counter.Iteration}";
+            this.counter = counter;
             this.Marked = marked;
-            this.Active = active;
         }
 
         public override string ToString()
         {
-            return Text;
+            return counter.ToString();
         }
     }
 }

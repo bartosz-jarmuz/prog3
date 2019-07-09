@@ -8,7 +8,7 @@ namespace Prog3.Common.Counters
     public class NumericCounter: ICounter
     {
         public string Name { get; set; }
-        public bool Working { get; set; }
+        public CounterStatus Status { get; protected set; } = CounterStatus.Ready;
 
         public event Action<ICounter> OnTick;
         public event Action<ICounter> OnComplete;
@@ -16,7 +16,6 @@ namespace Prog3.Common.Counters
         public int Iterations { get; protected set; }
         public int Iteration { get; protected set; }
         public int Delay { get; protected set; }
-
 
         public NumericCounter(int iterations, int delay, string name)
         {
@@ -37,13 +36,15 @@ namespace Prog3.Common.Counters
 
         protected void FlagCompleted()
         {
-            this.Working = false;
+            //this.Working = false;
+            this.Status = CounterStatus.Done;
             OnComplete(this);
         }
 
         protected void DoWork(int iterations, int delay)
         {
-            this.Working = true;
+            //this.Working = true;
+            this.Status = CounterStatus.Working;
             this.Iteration = 1;
             bool end = false;
             while (!end)
@@ -61,9 +62,20 @@ namespace Prog3.Common.Counters
             }
         }
 
+        public void ResetCounter()
+        {
+            this.Status = CounterStatus.Ready;
+            this.Iteration = 0;
+        }
+
         public override string ToString()
         {
-            return $"{Name} [n = {Iterations}, t = {Delay}]";
+            string iterationInfo = "";
+            if (this.Status != CounterStatus.Ready)
+            {
+                iterationInfo = $": iteration #{Iteration}";
+            }
+            return $"{Name} [n = {Iterations}, t = {Delay}ms]{iterationInfo}";
         }
     }
 }

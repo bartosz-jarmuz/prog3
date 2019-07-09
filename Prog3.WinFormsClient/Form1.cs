@@ -46,7 +46,7 @@ namespace Prog3.WinFormsClient
             {
                 CounterType selectedCounterType = ((KeyValuePair<CounterType, string>)ComboBoxCounterType.SelectedItem).Key;
                 ICounter counter = counterManager.AddNewCounter(selectedCounterType, TextBoxIterations.Text, TextBoxDelay.Text);
-                ListBoxCounters.Items.Add(new CounterViewItem(counter, false, true, true));
+                ListBoxCounters.Items.Add(new CounterViewItem(counter, false));
             }
             catch (Exception ex)
             {

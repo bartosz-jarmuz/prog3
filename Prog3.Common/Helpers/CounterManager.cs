@@ -99,7 +99,7 @@ namespace Prog3.Common.Helpers
         {
             lock (this)
             {
-                if (!this.ActiveCounters.Any(c => c.Working))
+                if (!this.ActiveCounters.Any(c => c.Status == CounterStatus.Working))
                 {
                     onCompleted(this);
                 }
@@ -114,5 +114,17 @@ namespace Prog3.Common.Helpers
                 onUpdated(this);
             }
         }
+
+        public void ResetCounters()
+        {
+            lock (this)
+            {
+                foreach (ICounter counter in this.ActiveCounters)
+                {
+                    counter.ResetCounter();
+                }
+            }
+        }
+
     }
 }

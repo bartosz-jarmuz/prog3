@@ -9,10 +9,11 @@ namespace Prog3.Common.Contracts
     public interface ICounter
     {
         string Name { get; set; }
-        bool Working { get; set; }
+        CounterStatus Status { get; }
         int Iteration { get; }
 
         void StartCounter();
+        void ResetCounter();
 
         event Action<ICounter> OnTick;
         event Action<ICounter> OnComplete;

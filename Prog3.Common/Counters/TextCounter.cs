@@ -10,7 +10,7 @@ namespace Prog3.Common.Counters
 {
     public class TextCounter : NumericCounter, ICounter
     {
-        private bool areParametersConvrted = false;
+        private bool areParametersConverted = false;
 
         private int iterationsValue;
         public new int Iterations
@@ -57,17 +57,22 @@ namespace Prog3.Common.Counters
 
         private void ConvertParams()
         {
-            if (!areParametersConvrted)
+            if (!areParametersConverted)
             {
                 this.Iterations = NumeralsConverter.NumeralToNumber(this.stringIterations);
                 this.Delay = NumeralsConverter.NumeralToNumber(this.stringDelay) * 1000;
-                areParametersConvrted = true;
+                areParametersConverted = true;
             }
         }
 
         public override string ToString()
         {
-            return $"{Name} [n = {Iterations}, t = {Delay}]";
+            string iterationInfo = "";
+            if (this.Status != CounterStatus.Ready)
+            {
+                iterationInfo = $": iteration #{Iteration}";
+            }
+            return $"{Name} [n = {Iterations}, t = {Delay/1000}s]{iterationInfo}";
         }
     }
 }
