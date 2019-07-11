@@ -40,7 +40,7 @@ namespace Prog3.WinFormsClient
 
         private void UpdateViewBuffer(CounterManager counterManager)
         {
-            lock (viewBuffer)
+            lock (viewBuffer) //best practice for locks is to use a dedicated lock object rather than the actual object for which you want a synchronized access
             {
                 viewBuffer.Clear();
                 foreach (ICounter counter in counterManager.ActiveCounters)

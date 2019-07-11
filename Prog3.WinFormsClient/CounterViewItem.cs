@@ -9,7 +9,7 @@ namespace Prog3.WinFormsClient
 {
     class CounterViewItem
     {
-        public string Text { get => counter.ToString(); }
+        public string Text { get => counter.ToString(); } //interesting notation:)
         public CounterStatus Status { get => counter.Status; }
         public bool Marked { get; }
 

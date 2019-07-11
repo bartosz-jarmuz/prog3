@@ -34,10 +34,12 @@ namespace Prog3.Common.Utils
                     }
                     break;
             }
-            throw new Exception("Invalid number");
+            throw new Exception("Invalid number"); //always good to include info 'what is invalid'.
+                                                   //It's better to read an error message saying 'Invalid number: [Thre]' or 'Invalid number []'
         }
 
-        public static bool IsValidNumber(string numeral, int minimum)
+        public static bool IsValidNumber(string numeral, int minimum) //probably it would make sense to do the same pattern as in 'TryParse' methods
+                                                                      //and return the result of your calculation if you do it anyway
         {
             try
             {

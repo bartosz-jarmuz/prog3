@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Prog3.ConsoleClient
 {
-    class UIHandler : IUIHandler
+    class UIHandler : IUIHandler //nicely done
     {
         readonly string msgAnotherCounter = "Add another counter? [Y/N]";
         readonly string[] answYesNo = new string[] {"y", "n"};
@@ -62,6 +62,7 @@ namespace Prog3.ConsoleClient
                 catch
                 {
                     //swallow Cancel exception
+                    //why swallow?
                 }
 
                 Console.Clear();
@@ -113,7 +114,7 @@ namespace Prog3.ConsoleClient
                 Console.WriteLine(message);
                 input = Console.ReadLine().ToLower();
 
-                if (possibleAnswers is Array)
+                if (possibleAnswers is Array) //have a look at 'Pattern matching' syntactic sugar (it's not wrong though)
                 {
                     foreach (string a in possibleAnswers as Array)
                     {

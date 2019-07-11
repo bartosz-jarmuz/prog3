@@ -13,7 +13,7 @@ namespace Prog3.Common.Counters
         private bool areParametersConverted = false;
 
         private int iterationsValue;
-        public new int Iterations
+        public new int Iterations //why 'new'?
         {
             get {
                 ConvertParams();
@@ -26,7 +26,7 @@ namespace Prog3.Common.Counters
         }
 
         private int delayValue;
-        public new int Delay
+        public new int Delay //why 'new'?
         {
             get
             {
@@ -50,7 +50,7 @@ namespace Prog3.Common.Counters
             this.Name = name;
         }
 
-        public new void StartCounter()
+        public new void StartCounter() //why 'new'? also, what is the point of this method?
         {
             base.StartCounter();
         }

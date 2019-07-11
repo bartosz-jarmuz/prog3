@@ -51,7 +51,7 @@ namespace Prog3.Common.Helpers
 
         private ICounter CreateNumericCounter(string iterations, string delay)
         {
-            if (!int.TryParse(iterations, out int iterationsInt) || (iterationsInt < 1))
+            if (!int.TryParse(iterations, out int iterationsInt) || (iterationsInt < 1)) //here you're validating that the number is correct and then getting the value and assigning it... oki
             {
                 throw new Exception("Iterations must be integer greater or equal to 1");
             }
@@ -66,7 +66,8 @@ namespace Prog3.Common.Helpers
 
         private ICounter CreateTextCounter(string iterations, string delay)
         {
-            if (!NumeralsConverter.IsValidNumber(iterations, 1))
+            if (!NumeralsConverter.IsValidNumber(iterations, 1)) //and here you're only validating the number - why not assign it already? Especially that you are doing the conversion anyway as part of 'IsValidNumber'
+            //but then... what would be the difference between the TextCounter and NumericCounter:)
             {
                 throw new Exception("Iterations must be numeral of integer greater or equal to 1");
             }
@@ -81,12 +82,13 @@ namespace Prog3.Common.Helpers
 
         private string GetNewName(CounterType type)
         {
-            return $"Counter #{ActiveCounters.Count + 1} ({type.GetLabel()})";
+            return $"Counter #{ActiveCounters.Count + 1} ({type.GetLabel()})"; //why the +1? Count is not 0-based ;)
+            //ok, I see, that's because the counter is added a bit later. That's a bit confusing TBH
         }
 
         public void StartAllCounters()
         {
-            lock (this)
+            lock (this) //it is better to acquire a lock on a private object dedicated to being 'the lock'. Locking on the entire object, especially public one can lead to deadlocks
             {
                 foreach (ICounter counter in this.ActiveCounters)
                 {
